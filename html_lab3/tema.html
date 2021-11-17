@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3</title>
+</head>
+
+<body>
+    <table width="100%" cellspacing="0" cellpadding="5" border="1" align="center">
+        <tr>
+            <td colspan="9">
+                <h2>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З ДИСЦИПЛІНИ « РОЗРОБЛЕННЯ WEB-ЗАСТОСУВАННЬ»</h2>
+                <a href="authors.html">Виконавці</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>БРИГАДА №7</h4>
+            </td>
+            <td>
+                <h4>Студенти групи ІА-04</h4>
+            </td>
+            <td colspan="3">Лісун А.Р.; Мазур Б.С.; Маковський Н.О.; Гунда С.В.</td>
+            <td> f</td>
+            <td> f</td>
+            <td> f</td>
+            <td> f</td>
+        </tr>
+        <tr>
+            <td><a href="../lab1.html">Лабораторна робота №1</a></td>
+            <td><a href="../lab2.html">Лабораторна робота №2</a></td>
+            <td><a href="../lab3.html">Лабораторна робота №3</a></td>
+            <td><a href="../lab4.html">Лабораторна робота №4</a></td>
+            <td><a href="../lab5.html">Лабораторна робота №5</a></td>
+            <td><a href="../lab6.html">Лабораторна робота №6</a></td>
+            <td><a href="../lab7.html">Лабораторна робота №7</a></td>
+            <td><a href="../lab8.html">Лабораторна робота №8</a></td>
+            <td><a href="../lab9.html">Лабораторна робота №9</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="tema.html">Тема, Мета, Місце<br>розташування Звіту, Сайту</a>
+            </td>
+            <td colspan="8" rowspan="7">
+              <p>Тема: БЛОЧНА ВЕРСТКА HTML-ДОКУМЕНТУ ЗА МАКЕТОМ.</p>
+              <p>Мета: придбати практичні навички роботи  верстки сторінок засобами CSS, верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок../.</p>
+              <p>Місце розташування: <a href="https://github.com/ashonuyak/TheSnitch">https://github.com/ashonuyak/TheSnitch</a></p>
+              <img src="..\images\main-page.png" width="800px">
+              <p>Зараз в нашому проекті застосований гумовий макет. Його переваги полягають у ефективному використовуванні усієї ширини екрану.<br>Проте у найближчому майбутньому ми плануємо змінити макет нашого проекту на адаптивний, за допомогою якого наш сайт буде легко підлаштовуватися під будь-який розмір екрану монітора.</p>
+              <p>HTML-код</p>
+              <xmp><!DOCTYPE html>
+                <html lang="en">
+                
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>The Snitch</title>
+                    <link rel="stylesheet" href="./css/styles.css">
+                </head>
+                
+                <body>
+                    <header>
+                        <a href="index.html" class="logo">
+                            <img src="./images/logo.png">
+                        </a>
+                        <nav class="headers-menu">
+                            <a href="./news.html" class="headers">NEWS</a>
+                            <a href="./insides.html" class="headers">INSIDES</a>
+                            <a href="./opinions.html" class="headers">OPINIONS</a>
+                            <a href="./tables.html" class="headers">TABLES</a>
+                            <a href="./about_us.html" class="headers">ABOUT US</a>
+                            <a href="./sign_in.html" class="headers" id="sign_in">SIGN IN</a>
+                            <input type="text" class="headers" placeholder="Search here">
+                        </nav>
+                    </header>
+                
+                    
+                <nav id="post">
+                  <div>
+                    <p id="fati-text">An 18-year-old who has only started 23 matches for Barcelona has been given Lionel Messi's iconic
+                      No. 10 jersey</p>
+                    <img src="images/E-djEHeXsAUPm_0.jpg" id="fati">
+                  </div>
+                  <div>
+                    <p id="griezmann-text">Griezmann returns to Atletico Madrid from Barcelona in season-long loan with mandatory €40m
+                      purchase option.</p>
+                    <img src="images/63766060341598.jpg" id="griezmann">
+                  </div>
+                </nav>
+                
+                
+                    <footer>
+                        <p id="footer">footer</p>
+                    </footer>
+                </body>
+                
+                </html></xmp>
+                <p>CSS-код</p>
+                <xmp>body {
+                    // padding: 0%;
+                    margin: 0%;
+                  }
+                  
+                  header, footer {
+                    display: flex;
+                    background-color: rgb(15, 53, 87);
+                    .logo {
+                      margin: 10px;
+                    }
+                    .headers-menu {
+                      display: flex;
+                      flex-direction: row;
+                      width: 80%;
+                      .headers {
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        margin-left: 3%;
+                        color: white;
+                        width: 100px;
+                      }
+                      #sign_in {
+                        margin-left: 29%;
+                      }
+                      input {
+                        /* border: 0; */
+                        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+                        height: 25px;
+                        /* margin-bottom: 3%; */
+                        display: flex;
+                        align-self: center;
+                        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+                      }
+                    }
+                    #footer{
+                      margin-left: 700px;
+                      color: white;
+                    }
+                  }
+                  
+                  table,
+                  tr,
+                  td {
+                    border: 1px solid black;
+                  }
+                  
+                  p[class] {
+                    font-weight: 700;
+                  }
+                  
+                  html * p {
+                    color: brown;
+                  }
+                  
+                  b + i {
+                    color: red;
+                  }
+                  
+                  .lists {
+                    list-style-type: square;
+                  }
+                  
+                  #post{
+                    display: flex;
+                    div{
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: space-around;
+                      #griezmann {
+                        width: 530px;
+                      }
+                      #fati{
+                        width: 330px;
+                      }
+                      #griezmann-text, #fati-text {
+                        font-size: 25px;
+                        font-weight: 700;
+                        margin-left: 10px;
+                      }
+                    }
+                  }</xmp>
+
+          </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="layout.html">Зовнішній вигляд макету</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="code.html">HTML-код макету</a>
+            </td>
+        </tr>
+        <td>
+            <ul>
+                <li><a href="table.html">Розмітка сторінки за допомогою таблиці</a></li>
+                <li><a href="float.html">Розмітка сторінки за допомогою плаваючих блоків</a></li>
+            </ul>
+        </td>
+        <tr>
+            <td>
+                <a href="results.html">Висновки</a>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lab4</title>
+</head>
+
+<body>
+  <table width="100%" cellspacing="0" cellpadding="5" border="1" align="center">
+    <tr>
+      <td colspan="9">
+        <h2>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З ДИСЦИПЛІНИ « РОЗРОБЛЕННЯ WEB-ЗАСТОСУВАННЬ»</h2>
+        <a href="authors.html">Виконавці</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>БРИГАДА №7</h4>
+      </td>
+      <td>
+        <h4>Студенти групи ІА-04</h4>
+      </td>
+      <td colspan="3">Лісун А.Р.; Мазур Б.С.; Маковський Н.О.; Гунда С.В.</td>
+      <td> f</td>
+      <td> f</td>
+      <td> f</td>
+      <td> f</td>
+    </tr>
+    <tr>
+      <td><a href="../lab1.html">Лабораторна робота №1</a></td>
+      <td><a href="../lab2.html">Лабораторна робота №2</a></td>
+      <td><a href="../lab3.html">Лабораторна робота №3</a></td>
+      <td><a href="../lab4.html">Лабораторна робота №4</a></td>
+      <td><a href="../lab5.html">Лабораторна робота №5</a></td>
+      <td><a href="../lab6.html">Лабораторна робота №6</a></td>
+      <td><a href="../lab7.html">Лабораторна робота №7</a></td>
+      <td><a href="../lab8.html">Лабораторна робота №8</a></td>
+      <td><a href="../lab9.html">Лабораторна робота №9</a></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="tema.html">ПОСТАНОВКА ЗАДАЧІ<br>Лабораторної роботи №4</a>
+      </td>
+      <td colspan="8" rowspan="7">
+        <p>Мазур (7 варіант)</p>
+        <img src="..\images\mazur-array.png" width="400px">
+        <img src="..\images\mazur-array2.png" width="400px">
+        <p>Лісун</p>
+        <xmp>
+          <html>
+          <head>
+            <meta charset="utf-8" />
+            <title>Task 1 var 6</title>
+          </head>
+          <body>
+            <input id="elem1" type="text" name="quantity" placeholder="Amount">
+            <input id="butt" type="button" value="Кнопка" /><br><br>
+            <div id="str"></div>
+            <div id="str1"></div>
+            <div id="str2"></div>
+            <script>
+              function partition(items, left, right) {
+                var pivot = items[Math.floor((right + left) / 2)],
+                  i = left,
+                  j = right;
+                while (i <= j) {
+                  while (items[i] < pivot) {
+                    i++;
+                  }
+                  while (items[j] > pivot) {
+                    j--;
+                  }
+                  if (i <= j) {
+                    const temp = items[i];
+                    items[i] = items[j];
+                    items[j] = temp;
+                    i++;
+                    j--;
+                  }
+                }
+                return i;
+              }
+              function quickSort(items, left, right) {
+                var index;
+                if (items.length > 1) {
+                  left = typeof left != "number" ? 0 : left;
+                  right = typeof right != "number" ? items.length - 1 : right;
+                  index = partition(items, left, right);
+                  if (left < index - 1) {
+                    quickSort(items, left, index - 1);
+                  }
+                  if (index < right) {
+                    quickSort(items, index, right);
+                  }
+                }
+                return items;
+              }
+              butt.onclick = function () {
+                var amount = document.getElementById('elem1').value;
+                var arr = Array.from({ length: amount }, () => Math.floor(Math.random() * 100));
+                document.getElementById('str').innerHTML = "Generated arr: " + arr;
+                var mini = Math.min.apply(Math, arr);
+                var maxi = Math.max.apply(Math, arr);
+                var arrm = [arr.indexOf(mini), arr.indexOf(maxi)].sort();
+                var sum = arr.slice(arrm[0], arrm[1] + 1).reduce((a, b) => a + b, 0);
+                document.getElementById('str1').innerHTML = "Sum from " + mini + " to " + maxi + " = " + sum;
+                document.getElementById('str2').innerHTML = "Sorted arr: " + quickSort(arr);
+              };
+            </script>
+          </body>
+          </html>
+        </xmp>
+        <p>Маковський</p>
+        <img src="..\images\mak-float.png" width="400px">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="ways.html">Способи функціонального<br>застосування JavaScript</a>
+      </td>
+    </tr>
+    <td>
+      <ul>
+        <li><a href="url.html">Схема URL</a></li>
+        <li><a href="handler.html">Обробник подій</a></li>
+        <li><a href="entity.html">Підстановка (entity)</a></li>
+        <li><a href="script.html">Вставка (тег SCRIPT)</a></li>
+      </ul>
+    </td>
+    <tr>
+      <td>
+        <a href="arrays.html">МАСИВИ (4 пункт)</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="tasks.html">Виконання 6 пункту</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="results.html">Висновки</a>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

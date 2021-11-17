@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lab4</title>
+</head>
+
+<body>
+  <table width="100%" cellspacing="0" cellpadding="5" border="1" align="center">
+    <tr>
+      <td colspan="9">
+        <h2>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З ДИСЦИПЛІНИ « РОЗРОБЛЕННЯ WEB-ЗАСТОСУВАННЬ»</h2>
+        <a href="authors.html">Виконавці</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>БРИГАДА №7</h4>
+      </td>
+      <td>
+        <h4>Студенти групи ІА-04</h4>
+      </td>
+      <td colspan="3">Лісун А.Р.; Мазур Б.С.; Маковський Н.О.; Гунда С.В.</td>
+      <td> f</td>
+      <td> f</td>
+      <td> f</td>
+      <td> f</td>
+    </tr>
+    <tr>
+      <td><a href="../lab1.html">Лабораторна робота №1</a></td>
+      <td><a href="../lab2.html">Лабораторна робота №2</a></td>
+      <td><a href="../lab3.html">Лабораторна робота №3</a></td>
+      <td><a href="../lab4.html">Лабораторна робота №4</a></td>
+      <td><a href="../lab5.html">Лабораторна робота №5</a></td>
+      <td><a href="../lab6.html">Лабораторна робота №6</a></td>
+      <td><a href="../lab7.html">Лабораторна робота №7</a></td>
+      <td><a href="../lab8.html">Лабораторна робота №8</a></td>
+      <td><a href="../lab9.html">Лабораторна робота №9</a></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="tema.html">ПОСТАНОВКА ЗАДАЧІ<br>Лабораторної роботи №4</a>
+      </td>
+      <td colspan="8" rowspan="7">
+        <p>Мазур (7 варіант)</p>
+        <nav>
+          <img src="..\images\mazur-task1.png" width="400px">
+          <img src="..\images\mazur-task2.png" width="400px">
+        </nav>
+        <nav>
+          <img src="..\images\mazur-task3.png" width="400px">
+          <img src="..\images\mazur-task4.png" width="400px">
+        </nav>
+        <p>Лісун</p>
+        <nav>
+          <img src="../images/lizun-cal.jpg" width="400px">
+          <img src="../images/lizun-cale.jpg" width="400px">
+          <img src="../images/lizun-calen.jpg" width="400px">
+        </nav>
+        <xmp>
+          <html>
+
+          <head>
+            <title>Calendar</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+            <style>
+              .datetimepicker-header {
+                position: relative;
+                background: #f00;
+              }
+
+              .datetimepicker-header-close {
+                position: absolute;
+                right: 1px;
+                top: 1px;
+                margin: 0;
+                padding: 0;
+                color: #fff;
+                cursor: pointer;
+              }
+
+              .datetimepicker-curmonth {
+                text-align: center;
+                cursor: pointer;
+                background: #ddd;
+                font-weight: bold;
+              }
+
+              .datetimepicker-curmonth:hover {
+                background: #ccf;
+              }
+
+              .datetimepicker-not-curmonth {
+                text-align: center;
+                cursor: pointer;
+                background: #eee;
+              }
+
+              .datetimepicker-not-curmonth:hover {
+                background: #ccf;
+              }
+            </style>
+
+          </head>
+
+          <body>
+
+            <div class="container">
+              <h1>Calendar</h1>
+              <form>
+                <input type="text" id="dateInput" class="form-control" />
+                <span id="datePickerWrapper"></span><a href="#" class="btn btn-primary" onclick="showCalend(this)">Open
+                  calendar</a>
+              </form>
+            </div>
+
+            <script>
+              function generateCalendar(month, year) {
+                let result = '';
+                let curTime = new Date();
+                let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+                result += '<div class="datetimepicker-wrapper">';
+                result += '<div class="datetimepicker-header">';
+                result += '<h1 class="datetimepicker-title">Select date</h1>';
+                result += '<h1 class="datetimepicker-header-close" onclick="closeDatePicker(this)">X</h1>';
+                result += '</div>';
+                result += '<div class="datetimepicker-body">';
+                result += '<div class="row">';
+                result += '<div class="col">';
+                result += '<select class="form-control datetimepicker-month" onchange="datePickerMonthChange(this)">';
+
+                for (let index in months) {
+                  if (index == month)
+                    result += `<option value="${index}" selected>${months[index]}</option>`;
+                  else
+                    result += `<option value="${index}">${months[index]}</option>`;
+                }
+                result += '</select>';
+                result += '</div>';
+                result += '<div class="col">';
+                result += '<input type="number" class="form-control datetimepicker-year" value="' + year + '" onchange="datePickerYearChange(this)"/>';
+                result += '</div>';
+                result += '</div>';
+                result += '<div class="row"><div class="col-sm-12">';
+                result += '<table class="table"><tbody class="datetimepicker-datetablebody"></tbody></table>';
+                result += '</div></div>';
+                result += '</div>';
+                result += '</div>';
+                result += '';
+
+                return result;
+              }
+
+              function generateDateTableBody(month, year) {
+                let result = '';
+                let counter = 0;
+                let curDate = new Date(year, month, 1, 0, 0, 0, 0);
+                let startDatOffset = curDate.getDay() * -1 + 2;
+
+                for (let week = 0; week < 6; week++) {
+                  result += '<tr>';
+
+                  for (let day = 0; day < 7; day++) {
+
+                    let d = new Date(year, month, counter + startDatOffset, 0, 0, 0, 0);
+                    if (d.getMonth() == month)
+                      result += `<td class="datetimepicker-curmonth" data-month="${d.getMonth()}" data-year="${d.getFullYear()}" onclick="dayClick(this)">${d.getDate()}</td>`;
+                    else
+                      result += `<td class="datetimepicker-not-curmonth" data-month="${d.getMonth()}" data-year="${d.getFullYear()}" onclick="dayClick(this)">${d.getDate()}</td>`;
+
+                    counter++;
+                  }
+
+                  result += '</tr>';
+                }
+
+                return result;
+              }
+              function datePickerMonthChange(e) {
+                let month = e.options[e.selectedIndex].value;
+                let wrapper = e.closest(`.datetimepicker-wrapper`);
+                let tableBody = wrapper.getElementsByClassName('datetimepicker-datetablebody')[0];
+                let yearSelector = wrapper.getElementsByClassName('datetimepicker-year')[0];
+                tableBody.innerHTML = generateDateTableBody(parseInt(month), parseInt(yearSelector.value));
+              }
+
+              function datePickerYearChange(e) {
+                let year = parseInt(e.value);
+                let wrapper = e.closest(`.datetimepicker-wrapper`);
+                let tableBody = wrapper.getElementsByClassName('datetimepicker-datetablebody')[0];
+                let monthSelector = wrapper.getElementsByClassName('datetimepicker-month')[0];
+                tableBody.innerHTML = generateDateTableBody(parseInt(monthSelector.options[monthSelector.selectedIndex].value), year);
+              }
+
+              function dayClick(e) {
+                let wrapper = e.closest(`.datetimepicker-wrapper`);
+                let curDate = new Date(parseInt(e.dataset.year), parseInt(e.dataset.month), parseInt(e.innerHTML), 0, 0, 0, 0);
+                wrapper.parentNode.selectCB(curDate);
+                wrapper.remove();
+              }
+
+              function datePicker(wrapper, cb, startDate = null) {
+                let curDate = new Date();
+
+                if (startDate !== null)
+                  curDate = new Date(startDate);
+
+                wrapper.innerHTML = generateCalendar(curDate.getMonth(), curDate.getFullYear());
+                wrapper.selectCB = cb;
+              }
+
+              function closeDatePicker(e) {
+                e.closest(`.datetimepicker-wrapper`).remove();
+              }
+
+              function calendarCB(date) {
+                document.getElementById('dateInput').value = date;
+              }
+
+              function showCalend() {
+                datePicker(document.getElementById('datePickerWrapper'), calendarCB);
+              }
+            </script>
+
+          </body>
+
+          </html>
+        </xmp>
+        <p>Маковський</p>
+        <img src="..\images\mak-float.png" width="400px">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="ways.html">Способи функціонального<br>застосування JavaScript</a>
+      </td>
+    </tr>
+    <td>
+      <ul>
+        <li><a href="url.html">Схема URL</a></li>
+        <li><a href="handler.html">Обробник подій</a></li>
+        <li><a href="entity.html">Підстановка (entity)</a></li>
+        <li><a href="script.html">Вставка (тег SCRIPT)</a></li>
+      </ul>
+    </td>
+    <tr>
+      <td>
+        <a href="arrays.html">МАСИВИ (4 пункт)</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="tasks.html">Виконання 6 пункту</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="results.html">Висновки</a>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

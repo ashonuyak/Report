@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab5</title>
+</head>
+
+<body>
+    <table width="100%" cellspacing="0" cellpadding="5" border="1" align="center">
+        <tr>
+            <td colspan="9">
+                <h2>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З ДИСЦИПЛІНИ « РОЗРОБЛЕННЯ WEB-ЗАСТОСУВАННЬ»</h2>
+                <a href="html_lab1/authors.html">Виконавці</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>БРИГАДА №7</h4>
+            </td>
+            <td>
+                <h4>Студенти групи ІА-04</h4>
+            </td>
+            <td colspan="3">Лісун А.Р.; Мазур Б.С.; Маковський Н.О.; Гунда С.В.</td>
+            <td> f</td>
+            <td> f</td>
+            <td> f</td>
+            <td> f</td>
+        </tr>
+        <tr>
+            <td><a href="../lab1.html">Лабораторна робота №1</a></td>
+            <td><a href="../lab2.html">Лабораторна робота №2</a></td>
+            <td><a href="../lab3.html">Лабораторна робота №3</a></td>
+            <td><a href="../lab4.html">Лабораторна робота №4</a></td>
+            <td><a href="../lab5.html">Лабораторна робота №5</a></td>
+            <td><a href="../lab6.html">Лабораторна робота №6</a></td>
+            <td><a href="../lab7.html">Лабораторна робота №7</a></td>
+            <td><a href="../lab8.html">Лабораторна робота №8</a></td>
+            <td><a href="../lab9.html">Лабораторна робота №9</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="tema.html">ПОСТАНОВКА ЗАДАЧІ<br>Лабораторної роботи №5</a>
+            </td>
+            <td colspan="8" rowspan="7">
+                <img src="imgs/informers.png">
+                <xmp>
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    
+                    <head>
+                      <meta charset="UTF-8">
+                      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <title>Informers</title>
+                    </head>
+                    
+                    
+                    <body>
+                      <div id="message"></div>
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+                      <script>
+                        $(document).ready(function () {
+                          $.ajax({
+                            type: "GET",
+                            url: "https://api.openweathermap.org/data/2.5/weather?q=" +
+                              "Kyiv" +
+                              "&appid=f1377af1ebc96c7ea3acf6056e0d0bf8",
+                            dataType: "json",
+                            success: function (result) {
+                              let table = $("<table><tr><th>Weather Description</th></tr>");
+                              table.append(
+                                "<tr><td>City:</td><td>" + result["name"] + "</td></tr>"
+                              );
+                              table.append(
+                                "<tr><td>Country:</td><td>" +
+                                result["sys"]["country"] +
+                                "</td></tr>"
+                              );
+                              table.append(
+                                "<tr><td>Current Temperature:</td><td>" +
+                                Math.floor((result["main"]["temp"] - 273)) +
+                                "°C</td></tr>"
+                              );
+                              table.append(
+                                "<tr><td>Humidity:</td><td>" +
+                                result["main"]["humidity"] +
+                                "</td></tr>"
+                              );
+                              table.append(
+                                "<tr><td>Weather:</td><td>" +
+                                result["weather"][0]["description"] +
+                                "</td></tr>"
+                              );
+                              $("#message").html(table);
+                            },
+                          });
+                        });
+                      </script>
+                    
+                      <!--  Курс валют -->
+                      <table id="currencyTable">
+                        <thead>
+                          <tr>
+                            <th>Валюта 1</th>
+                            <th>Валюта 2</th>
+                            <th>Покупка</th>
+                            <th>Продажа</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                      <script>
+                        const currencyObj = {
+                          USD: 'доллар США',
+                          UAH: 'укр. гривна',
+                          RUR: 'рос. рубль',
+                          EUR: 'евро',
+                          BTC: 'биткоин',
+                        }
+                        $.getJSON("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5", function (result) {
+                          console.log(result);
+                          $.each(result, function (i, field) {
+                            var tr = "<td>" + currencyObj[field.base_ccy] + "</td><td>" + currencyObj[field.ccy]
+                              + "</td><td>" + field.buy + "</td><td>" + field.sale + "</td>";
+                            $("#currencyTable tbody").append("<tr>" + tr + "</tr>");
+                          });
+                        });
+                      </script>
+                      <style>#currencyTable{margin-top: 30px;}</style>
+                    
+                    
+                      <!-- Годинник -->
+                      <div class="clock"></div>
+                      <script>
+                        let clock = document.querySelector(".clock");
+                        function getTime() {
+                          return new Date();
+                        };
+                        setInterval(() => clock.innerHTML = getTime(),
+                          1
+                        );
+                      </script>
+                      <style>.clock{margin-top: 30px;}</style>
+                    </body>
+                    
+                    </html>
+                </xmp>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Динамiчнi елементи:
+                <ul>
+                    <li><a href="dynamic_el1.html">Accordion</a></li>
+                    <li><a href="dynamic_el2.html">Datepicker</a></li>
+                    <li><a href="dynamic_el3.html">Tabs</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="unite_gallary.html">Плагiн UniteGallary</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="social.html">Кнопки соцiальних мереж</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="infomer.html">Iнфомери</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="media.html">Мультимедiя</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="results.html">Висновки</a>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
